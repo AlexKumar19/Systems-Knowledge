@@ -1,0 +1,200 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "difficulty": "easy",
+      "question": "What is the primary purpose of an operating system?",
+      "options": [
+        "To manage hardware resources and provide services to applications",
+        "To compile source code into machine code",
+        "To provide internet connectivity",
+        "To store user data permanently"
+      ],
+      "correct": 0,
+      "explanation": "An operating system (OS) is system software that manages computer hardware, software resources, and provides common services for computer programs. It acts as an intermediary between users and the computer hardware, handling tasks like memory management, process scheduling, file system management, and device drivers."
+    },
+    {
+      "id": 2,
+      "difficulty": "easy",
+      "question": "What does CPU stand for?",
+      "options": [
+        "Central Processing Unit",
+        "Computer Processing Unit",
+        "Central Program Unit",
+        "Computer Program Unit"
+      ],
+      "correct": 0,
+      "explanation": "CPU stands for Central Processing Unit. It is the primary component of a computer that performs most of the processing inside the computer. The CPU executes instructions from programs by performing basic arithmetic, logical, control, and input/output operations."
+    },
+    {
+      "id": 3,
+      "difficulty": "easy",
+      "question": "Which of the following is a volatile memory type?",
+      "options": [
+        "RAM",
+        "Hard Disk Drive",
+        "SSD",
+        "USB Flash Drive"
+      ],
+      "correct": 0,
+      "explanation": "RAM (Random Access Memory) is volatile memory, meaning it requires power to maintain stored information. When the computer is turned off, all data in RAM is lost. In contrast, storage devices like HDD, SSD, and USB drives are non-volatile and retain data even when power is removed."
+    },
+    {
+      "id": 4,
+      "difficulty": "easy",
+      "question": "What is the default port number for HTTP?",
+      "options": [
+        "80",
+        "443",
+        "8080",
+        "21"
+      ],
+      "correct": 0,
+      "explanation": "Port 80 is the default port for HTTP (Hypertext Transfer Protocol), which is used for unencrypted web traffic. Port 443 is used for HTTPS (HTTP Secure), port 8080 is often used as an alternative HTTP port, and port 21 is used for FTP (File Transfer Protocol)."
+    },
+    {
+      "id": 5,
+      "difficulty": "easy",
+      "question": "What does DNS stand for?",
+      "options": [
+        "Domain Name System",
+        "Dynamic Network Service",
+        "Data Network System",
+        "Domain Network Service"
+      ],
+      "correct": 0,
+      "explanation": "DNS stands for Domain Name System. It is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet. DNS translates human-readable domain names (like www.example.com) into IP addresses (like 192.0.2.1) that computers use to identify each other on the network."
+    },
+    {
+      "id": 6,
+      "difficulty": "medium",
+      "question": "What is the difference between a process and a thread?",
+      "options": [
+        "A process has its own memory space, while threads share memory within a process",
+        "A thread has its own memory space, while processes share memory",
+        "There is no difference between them",
+        "Processes are faster than threads"
+      ],
+      "correct": 0,
+      "explanation": "A process is an independent program in execution with its own memory space, while threads are lightweight processes that exist within a process and share the same memory space. Threads can communicate more easily since they share memory, but processes are isolated from each other for security and stability. Threads are generally faster to create and switch between than processes."
+    },
+    {
+      "id": 7,
+      "difficulty": "medium",
+      "question": "What is the purpose of a load balancer?",
+      "options": [
+        "To distribute incoming network traffic across multiple servers",
+        "To balance the CPU load on a single machine",
+        "To manage database connections",
+        "To encrypt network traffic"
+      ],
+      "correct": 0,
+      "explanation": "A load balancer distributes incoming network traffic across multiple servers to ensure no single server becomes overwhelmed. This improves application availability, reliability, and performance by spreading the workload. Load balancers can use various algorithms like round-robin, least connections, or IP hash to distribute traffic efficiently."
+    },
+    {
+      "id": 8,
+      "difficulty": "medium",
+      "question": "What is the time complexity of binary search on a sorted array?",
+      "options": [
+        "O(log n)",
+        "O(n)",
+        "O(n log n)",
+        "O(1)"
+      ],
+      "correct": 0,
+      "explanation": "Binary search has a time complexity of O(log n) because it eliminates half of the remaining elements in each iteration. By repeatedly dividing the search space in half, binary search can find an element in a sorted array much faster than linear search, which has O(n) complexity. The logarithmic time complexity makes it very efficient for large datasets."
+    },
+    {
+      "id": 9,
+      "difficulty": "medium",
+      "question": "What is the difference between TCP and UDP?",
+      "options": [
+        "TCP is connection-oriented and reliable, UDP is connectionless and unreliable",
+        "UDP is connection-oriented and reliable, TCP is connectionless",
+        "Both are connection-oriented",
+        "Both are connectionless"
+      ],
+      "correct": 0,
+      "explanation": "TCP (Transmission Control Protocol) is connection-oriented, meaning it establishes a connection before data transfer and ensures reliable, ordered delivery of data. UDP (User Datagram Protocol) is connectionless and does not guarantee delivery, order, or error checking. TCP is used for applications requiring reliability (like web browsing), while UDP is used for applications prioritizing speed (like video streaming or gaming)."
+    },
+    {
+      "id": 10,
+      "difficulty": "medium",
+      "question": "What does ACID stand for in database transactions?",
+      "options": [
+        "Atomicity, Consistency, Isolation, Durability",
+        "Access, Consistency, Integrity, Data",
+        "Atomicity, Concurrency, Integrity, Durability",
+        "Access, Concurrency, Isolation, Data"
+      ],
+      "correct": 0,
+      "explanation": "ACID stands for Atomicity, Consistency, Isolation, and Durability - four key properties that guarantee reliable database transactions. Atomicity ensures all operations in a transaction complete or none do. Consistency ensures data remains valid. Isolation ensures concurrent transactions don't interfere. Durability ensures committed changes persist even after system failures."
+    },
+    {
+      "id": 11,
+      "difficulty": "hard",
+      "question": "What is the CAP theorem and what does it state?",
+      "options": [
+        "It states that a distributed system can only guarantee two out of three: Consistency, Availability, and Partition tolerance",
+        "It states that a system can have all three: Consistency, Availability, and Performance",
+        "It states that cache, availability, and performance cannot coexist",
+        "It states that consistency, accuracy, and performance are mutually exclusive"
+      ],
+      "correct": 0,
+      "explanation": "The CAP theorem states that in a distributed system, you can only guarantee two out of three properties: Consistency (all nodes see the same data simultaneously), Availability (system remains operational), and Partition tolerance (system continues despite network failures). In practice, partition tolerance is usually required, forcing a choice between consistency and availability, leading to CP or AP systems."
+    },
+    {
+      "id": 12,
+      "difficulty": "hard",
+      "question": "What is the difference between horizontal and vertical scaling?",
+      "options": [
+        "Horizontal scaling adds more machines, vertical scaling adds more power to existing machines",
+        "Vertical scaling adds more machines, horizontal scaling adds more power",
+        "They are the same thing",
+        "Horizontal scaling is for databases, vertical is for applications"
+      ],
+      "correct": 0,
+      "explanation": "Horizontal scaling (scaling out) involves adding more machines or nodes to handle increased load, while vertical scaling (scaling up) involves adding more power (CPU, RAM, storage) to existing machines. Horizontal scaling is generally more flexible and cost-effective for cloud environments, while vertical scaling has limits based on hardware capabilities and can require downtime."
+    },
+    {
+      "id": 13,
+      "difficulty": "hard",
+      "question": "What is a race condition?",
+      "options": [
+        "A situation where the output depends on the sequence or timing of uncontrollable events",
+        "A condition where processes run too fast",
+        "A database locking mechanism",
+        "A network congestion issue"
+      ],
+      "correct": 0,
+      "explanation": "A race condition occurs when the behavior of software depends on the relative timing of events, such as the order in which threads or processes access shared resources. This can lead to unpredictable results and bugs that are difficult to reproduce. Race conditions are typically prevented using synchronization mechanisms like locks, semaphores, or atomic operations."
+    },
+    {
+      "id": 14,
+      "difficulty": "hard",
+      "question": "What is the purpose of a message queue in distributed systems?",
+      "options": [
+        "To decouple services and handle asynchronous communication",
+        "To store user messages",
+        "To queue database queries",
+        "To manage network routing"
+      ],
+      "correct": 0,
+      "explanation": "Message queues enable asynchronous communication between services in distributed systems, allowing services to decouple and operate independently. They provide benefits like load leveling (handling traffic spikes), reliability (messages persist until processed), and scalability (services can process messages at their own pace). Examples include RabbitMQ, Apache Kafka, and AWS SQS."
+    },
+    {
+      "id": 15,
+      "difficulty": "hard",
+      "question": "What is eventual consistency?",
+      "options": [
+        "A consistency model where the system will become consistent over time if no new updates are made",
+        "A guarantee that data is always immediately consistent",
+        "A database replication strategy",
+        "A caching mechanism"
+      ],
+      "correct": 0,
+      "explanation": "Eventual consistency is a consistency model used in distributed systems where, given enough time without new updates, all replicas will converge to the same state. It trades immediate consistency for improved availability and performance. This is common in NoSQL databases and distributed systems where strict consistency would create bottlenecks or reduce availability."
+    }
+  ]
+}
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systems Knowledge Prep</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header/Menu -->
+        <header class="header">
+            <h1 class="logo">Systems Knowledge</h1>
+            <nav class="nav">
+                <button class="nav-btn active" data-view="menu">Menu</button>
+                <button class="nav-btn" data-view="questions">Questions</button>
+            </nav>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Menu View -->
+            <div id="menu-view" class="view active">
+                <div class="menu-container">
+                    <div class="menu-header">
+                        <h2>Question Bank</h2>
+                        <div class="filter-controls">
+                            <input type="text" id="search-input" class="search-input" placeholder="Search questions...">
+                            <select id="difficulty-filter" class="filter-select">
+                                <option value="all">All Difficulties</option>
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="questions-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Question</th>
+                                    <th>Difficulty</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="questions-table-body">
+                                <!-- Questions will be dynamically populated -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-footer">
+                        <span id="question-count-display">Showing 0 questions</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Questions View -->
+            <div id="questions-view" class="view">
+                <div class="question-container">
+                    <div class="question-header">
+                        <span class="difficulty-badge" id="current-difficulty"></span>
+                        <span class="question-number" id="question-number">Question 1 of 10</span>
+                    </div>
+                    
+                    <div class="question-content">
+                        <h3 class="question-text" id="question-text"></h3>
+                        
+                        <div class="options-container" id="options-container">
+                            <!-- Options will be dynamically generated -->
+                        </div>
+
+                        <div class="explanation-container" id="explanation-container" style="display: none;">
+                            <div class="explanation-header">
+                                <strong>Explanation:</strong>
+                            </div>
+                            <div class="explanation-text" id="explanation-text"></div>
+                        </div>
+                    </div>
+
+                    <div class="question-footer">
+                        <button class="btn btn-secondary" id="prev-btn" disabled>Previous</button>
+                        <button class="btn btn-primary" id="next-btn">Next</button>
+                        <button class="btn btn-secondary" id="back-btn">Back to Menu</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="questions-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
