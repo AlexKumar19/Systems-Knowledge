@@ -4,6 +4,31 @@ let filteredQuestions = [];
 let currentQuestion = null;
 let currentQuestionIndex = -1;
 let selectedAnswer = null;
+let completedQuestions = new Set();
+
+// Load completed questions from localStorage
+function loadCompletedQuestions() {
+    const stored = localStorage.getItem('completedQuestions');
+    if (stored) {
+        completedQuestions = new Set(JSON.parse(stored));
+    }
+}
+
+// Save completed questions to localStorage
+function saveCompletedQuestions() {
+    localStorage.setItem('completedQuestions', JSON.stringify(Array.from(completedQuestions)));
+}
+
+// Mark question as completed
+function markQuestionCompleted(questionId) {
+    completedQuestions.add(questionId);
+    saveCompletedQuestions();
+}
+
+// Check if question is completed
+function isQuestionCompleted(questionId) {
+    return completedQuestions.has(questionId);
+}
 
 // DOM elements
 const menuView = document.getElementById('menu-view');
@@ -25,6 +50,7 @@ const explanationText = document.getElementById('explanation-text');
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
+    loadCompletedQuestions();
     loadQuestions();
     setupEventListeners();
     renderQuestionsTable();
@@ -84,6 +110,8 @@ function setupEventListeners() {
             if (b.dataset.view === 'menu') b.classList.add('active');
         });
         // Re-filter to show all questions when going back
+        searchInput.value = '';
+        difficultyFilter.value = 'all';
         filteredQuestions = [...allQuestions];
         renderQuestionsTable();
     });
@@ -112,7 +140,7 @@ function renderQuestionsTable() {
     if (filteredQuestions.length === 0) {
         questionsTableBody.innerHTML = `
             <tr>
-                <td colspan="4" style="text-align: center; padding: 40px; color: var(--text-secondary);">
+                <td colspan="5" style="text-align: center; padding: 40px; color: var(--text-secondary);">
                     No questions found matching your criteria.
                 </td>
             </tr>
@@ -126,12 +154,17 @@ function renderQuestionsTable() {
         const preview = question.question.length > 80 
             ? question.question.substring(0, 80) + '...' 
             : question.question;
+        const isCompleted = isQuestionCompleted(question.id);
+        const checkmark = isCompleted ? '<span class="checkmark">✓</span>' : '';
 
         row.innerHTML = `
             <td>${question.id}</td>
             <td class="question-preview" title="${question.question}">${preview}</td>
             <td>
                 <span class="table-difficulty-badge ${question.difficulty}">${question.difficulty}</span>
+            </td>
+            <td class="status-cell">
+                ${checkmark}
             </td>
             <td>
                 <button class="table-action-btn" onclick="startQuestion(${index})">Start</button>
@@ -171,7 +204,10 @@ function switchView(view) {
 
 // Load current question
 function loadQuestion() {
-    if (!currentQuestion || filteredQuestions.length === 0) return;
+    if (filteredQuestions.length === 0 || currentQuestionIndex < 0 || currentQuestionIndex >= filteredQuestions.length) return;
+    
+    // Update current question from filtered list
+    currentQuestion = filteredQuestions[currentQuestionIndex];
     
     // Update question text
     questionText.textContent = currentQuestion.question;
@@ -232,6 +268,9 @@ function selectOption(index, element) {
     if (currentQuestion.explanation) {
         explanationText.textContent = currentQuestion.explanation;
         explanationContainer.style.display = 'block';
+        
+        // Mark question as completed when explanation is shown
+        markQuestionCompleted(currentQuestion.id);
     }
 }
 
